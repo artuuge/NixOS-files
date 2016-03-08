@@ -1,4 +1,4 @@
-## How to Install XMonad on NixOS
+<!-- ## How to Install XMonad on NixOS -->
 
 ### Getting Started
 
@@ -46,8 +46,8 @@ main = xmonad def
 ```
 Rebuild the system and switch to a new configuration:
 ```bash
-nixos-rebuild build -I /path/to/nixpkgs
-sudo -i nixos-rebuild switch -I /path/to/nixpkgs
+nixos-rebuild build -I nixpkgs=/path/to/nixpkgs
+sudo -i nixos-rebuild switch -I nixpkgs=/path/to/nixpkgs
 ```
 Logout, reboot, and login.
 You should be able to start `dmenu` with `mod-p`, and
