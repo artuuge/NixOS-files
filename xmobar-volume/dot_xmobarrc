@@ -1,0 +1,38 @@
+Config {
+         font = "xft:Liberation Mono:style=Bold:size=9:antialias=true"
+       , additionalFonts = []
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , sepChar = "%"
+       , alignSep = "}{"
+       , commands = [ Run StdinReader
+                    , Run Com "volumectl" [] "vol" 1
+                    , Run Date "<fc=orange>%F (%a) %T</fc>" "date" 10 
+                    , Run Battery [ "-t" , "<acstatus>: <left>% (<timeleft>)"
+                                  , "--Low"      , "10"        -- units: %
+                                  , "--High"     , "80"        -- units: %
+                                  , "--low"      , "darkred"
+                                  , "--normal"   , "darkorange"
+                                  , "--high"     , "darkgreen"
+                                  , "--"         , "-o", "Batt", "-O", "AC", "-i", "Charged"
+                                  ] 300
+                    , Run Kbd [ ("ru", "<fc=red>RU</fc>")
+                              , ("us", "<fc=lightblue>US</fc>")
+                              ]
+
+                    ]
+       , template = " %StdinReader% }{ %vol% | %battery% | <fc=orange>%date%</fc> | %kbd% "
+       }
