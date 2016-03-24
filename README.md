@@ -21,3 +21,7 @@ This section contains instructions on how to set-up volume control for [XMobar](
 ### emacs-packages
 
 There exists a large amount of packages for Emacs with most of them being available on-line from such repositories as [MELPA](https://melpa.org/). It is nonetheless of interest to be able, at least in principle, to use some Lisp code stemming from a local machine in a way compatible with the NixOS purely functional philosophy. In the present directory, I show how to do it creating a simple `helloworld.el` example. It is natural to wrap this file in a separate package, and to set it up via `emacsWithPackages`.
+
+### smalltalk-mode
+
+If you wish to experiment with [GNU Smalltalk](http://smalltalk.gnu.org/) using Emacs, you are, probably, going to need the `smalltalk-mode` feature. The corresponding Lisp code, as well as an implementation of the `gst` REPL, are, in principle, included in the `gnu-smalltalk` package for NixOS, but some additional set-up is still needed, since Emacs should to be told where to find the files in `/nix/store`. It is natural to implement a separate package describing the necessary auto-loads at start-up, so that one can reference it in `emacs-with-packages`.
