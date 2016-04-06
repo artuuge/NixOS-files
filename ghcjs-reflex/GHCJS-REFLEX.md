@@ -15,7 +15,7 @@ To make the Reflex libraries visible both to `ghc` and `ghcjs`, it is natural to
       reflex-dom
     ]);
 
-  }
+  };
 }
 ```
 Install `ghc` and `ghcjs` as follows:
