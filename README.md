@@ -25,3 +25,7 @@ There exists a large amount of packages for Emacs with most of them being availa
 ### smalltalk-mode
 
 If you wish to experiment with [GNU Smalltalk](http://smalltalk.gnu.org/) using Emacs, you are, probably, going to need the `smalltalk-mode` feature. The corresponding Lisp code, as well as an implementation of the `gst` REPL, are, in principle, included in the `gnu-smalltalk` package for NixOS, but some additional set-up is still needed, since Emacs should to be told where to find the files in `/nix/store`. It is natural to implement a separate package describing the necessary auto-loads at start-up, so that one can reference it in `emacs-with-packages`.
+
+### ghcjs-reflex
+
+This directory shows how to install the [ghcjs](https://github.com/ghcjs/ghcjs) compiler on NixOS, and how to use it in combination with the functional reactive programming platform [Reflex](https://github.com/reflex-frp/reflex-platform). This compiler is able to convert a Haskell file into a JavaScript code which can then be run in a browser. The standard `ghc` can co-exist with `ghcjs` without a problem. All that is needed is to create an additional `ghcWithPackages` wrapper around `ghcjs`.
